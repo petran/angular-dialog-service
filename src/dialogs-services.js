@@ -5,7 +5,8 @@ angular.module('dialogs.services',['ui.bootstrap.modal','dialogs.controllers'])
 	.provider('dialogs',[function(){
 		var _b = true; // backdrop
 		var _k = true; // keyboard
-		var _w = 'dialogs-default'; // windowClass
+    var _w = 'dialogs-default'; // windowClass
+    var _c = 'modal-open';
 		var _bdc = 'dialogs-backdrop-default'; // backdropClass
 		var _copy = true; // controls use of angular.copy
 		var _wTmpl = null; // window template
@@ -22,7 +23,8 @@ angular.module('dialogs.services',['ui.bootstrap.modal','dialogs.controllers'])
 			_opts.bdc = (angular.isDefined(opts.backdropClass)) ? opts.backdropClass : _bdc; // additional CSS class(es) to be added to the modal backdrop
 			_opts.ws = (angular.isDefined(opts.size) && ((opts.size === 'sm') || (opts.size === 'lg') || (opts.size === 'md'))) ? opts.size : _wSize; // values: 'sm', 'lg', 'md'
 			_opts.wc = (angular.isDefined(opts.windowClass)) ? opts.windowClass : _w; // additional CSS class(es) to be added to a modal window
-			_opts.anim = (angular.isDefined(opts.animation)) ? !!opts.animation : _animation; // values: true,false
+      _opts.oc = (angular.isDefined(opts.openedClass)) ? opts.openedClass : _c; // additional CSS class(es) to be added to a modal window
+      _opts.anim = (angular.isDefined(opts.animation)) ? !!opts.animation : _animation; // values: true,false
 			_opts.btnMessages = (angular.isDefined(opts.btnMessages)) ? opts.btnMessages : {}; // button overrides
 			return _opts;
 		}; // end _setOpts
@@ -269,7 +271,8 @@ angular.module('dialogs.services',['ui.bootstrap.modal','dialogs.controllers'])
 						keyboard : opts.kb,
 						backdrop : opts.bd,
 						backdropClass: opts.bdc,
-						windowClass: opts.wc,
+            windowClass: opts.wc,
+            openedClass: opts.oc,
 						size: opts.ws,
 						animation: opts.anim,
 						resolve : {
