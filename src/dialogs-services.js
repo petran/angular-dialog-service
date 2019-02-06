@@ -305,7 +305,8 @@ angular.module('dialogs.services',['ui.bootstrap.modal','dialogs.controllers'])
 						keyboard : opts.kb,
 						backdrop : opts.bd,
 						backdropClass: opts.bdc,
-						windowClass: opts.wc,
+            windowClass: opts.wc,
+            openedClass: opts.oc,
 						size: opts.ws,
 						animation: opts.anim,
 						resolve : {
